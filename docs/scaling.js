@@ -31,21 +31,20 @@ function showValue(){
          ];
 
          var colors = [
-            5,3,7, 5,3,7, 5,3,7, 5,3,7,
-            1,1,3, 1,1,3, 1,1,3, 1,1,3,
-            2,2,1, 0,0,1, 0,0,1, 0,0,1,
-            1,0,0, 1,1,0, 1,2,0, 1,1,0,
-            1,1,0, 1,1,0, 1,1,0, 1,1,0,
             0,1,0, 0,1,0, 0,1,0, 0,1,0,
-            0,3,7, 0,3,7, 0,3,7, 0,3,7,
-
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
+            0,1,0, 0,1,0, 0,1,0, 0,1,0,
          ];
 
          var indices = [
-            0,1,2, 0,2,3, 4,5,6, 4,6,7,
-            8,9,10, 8,10,11, 12,13,14, 12,14,15,
-            16,17,18, 16,18,19, 20,21,22, 20,22,23,
-            20,22,23, 24,25,26, 26,27,20, 10,24,26
+            0,1,2, 1,2,3, 4,5,6, 5,6,7,
+            8,9,10, 9,10,11, 12,13,14, 13,14,15,
+            16,17,18, 17,18,19, 20,21,22, 21,22,23,
+            21,22,23, 24,25,26, 26,27,20, 20,22,24 
          ];
 
          // Create and store data into vertex buffer
@@ -169,7 +168,7 @@ function showValue(){
 
             // gl.depthFunc(gl.LEQUAL);
 
-            gl.clearColor(0.5, 0.5, 0.5, 0.9);
+            gl.clearColor(0.1,0.1,0.1,0.1);
             gl.clearDepth(1.0);
             gl.viewport(0.0, 0.0, canvas.width, canvas.height);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -179,7 +178,7 @@ function showValue(){
             gl.uniformMatrix4fv(_Mmatrix, false, mo_matrix);
 
             gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer);
-            gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0);
+            gl.drawElements(gl.LINES, indices.length, gl.UNSIGNED_SHORT, 0);
 
             window.requestAnimationFrame(animate);
          }
